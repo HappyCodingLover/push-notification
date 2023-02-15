@@ -40,6 +40,6 @@ app.post("/subscribe", (req, res) => {
     .catch((error) => console.error(error));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.info(`Server started on port ${port}`));
