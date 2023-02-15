@@ -1,10 +1,11 @@
 const path = require("path");
 const express = require("express");
 const webPush = require("web-push");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-
+app.use(cors({ origin: "*" }));
 // Set static path
 app.use(express.static(path.join(__dirname, "client")));
 
