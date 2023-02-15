@@ -24,20 +24,21 @@ webPush.setVapidDetails(
 app.post("/subscribe", (req, res) => {
   // Get pushSubscription object
   const subsccription = req.body;
-
-  // Send 201 - resource created
-  res.status(201).json({});
+  console.log("subsccription", subsccription);
 
   // Create payload
   const payload = JSON.stringify({
     title: "Push Test",
     body: "Notified by Service Worker",
   });
+  console.log("payload", payload);
 
   // Pass object into sendNotification
   webPush
     .sendNotification(subsccription, payload)
     .catch((error) => console.error(error));
+
+  res.status(201).json({});
 });
 
 const port = process.env.PORT || 8080;
